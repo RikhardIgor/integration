@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+from .models import Question
 
 
 def index(request):
-    return HttpResponse('sdfsdfsdf')
+    questions = Question.objects.exclude(choice__isnull=True)
+    return render(request, 'polls/index.html', {'questions': questions})
