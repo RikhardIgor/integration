@@ -3,22 +3,25 @@
 {#<script src="https://unpkg.com/vue@next"></script>#}
 {#<script src="{% static 'polls/polls.js' %}"></script>#}
 
-{% if questions %}
-    <ul>
-    {% for question in questions %}
-        <li><b>{{ question.question_text }}</b></li>
+{% if user.is_authenticated  %}
+    {% if questions %}
         <ul>
-            {% for choice in question.choice_set.all %}
-                <input type="checkbox" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-            {% endfor %}
+        {% for question in questions %}
+            <li><b>{{ question.question_text }}</b></li>
+            <ul>
+                {% for choice in question.choice_set.all %}
+                    <input type="checkbox" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                {% endfor %}
+            </ul>
+        {% endfor %}
         </ul>
-    {% endfor %}
-    </ul>
 
-    <div id="counter">
-        Counter: [[ counter ]]
-    </div>
+        <div id="counter">
+            Counter: [[ counter ]]
+        </div>
 
-    <input type="submit" value="Завершить">
+        <input type="submit" value="Завершить">
+    {% endif %}
+
 {% endif %}
