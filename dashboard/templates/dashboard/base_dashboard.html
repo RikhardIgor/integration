@@ -1,48 +1,44 @@
 {% extends "dashboard/base.html" %}
 
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'dashboard/dashboard.css' %}">
-
 {% block content %}
     <div class="row align-items-start">
-        <div class="col-2">
-            <div>Иванов Иван</div>
-            <hr>
-            <ul>
-                <li>Прогресс</li>
-                <li>Сообщения</li>
-                <li>Курсы</li>
-                <li>Уведомления</li>
-            </ul>
-            <hr>
-            <div>Выйти</div>
-        </div>
         <div class="col">
             <h4>Основные термины</h4>
             <div class="row align-items-start">
                 <div class="col">
                     <div class="notice row align-items-start">
-                        <div class="col">
-                            <div class="notice-item">
-                                заданий
-                            </div>
+                        <div class="col notice-item">
+                            <div><i class="fas fa-clipboard-check"></i></div>
+                            <div>37</div>
+                            <div>Заданий</div>
+                        </div>
+                        <div class="col notice-item">
+                            <div><i class="far fa-bell"></i></div>
+                            <div>2</div>
+                            <div>Уведомления</div>
 
                         </div>
-                        <div class="col">Уведомления</div>
-                        <div class="col">замечания</div>
+                        <div class="col notice-item">
+                            <div><i class="fas fa-exclamation-circle"></i></div>
+                            <div>2</div>
+                            <div>Замечания</div>
+                        </div>
                     </div>
                     <div class="progress">
-                        Завершено
+                        <div>Завершено</div>
+                        <hr>
                     </div>
                     <div class="buttons">
-                        <button>Сбросить ответы</button>
-                        <button>Завершить курс</button>
+                        <button type="button" class="btn btn-primary">Сбросить ответы</button>
+                        <button type="button" class="btn btn-primary">Завершить курс</button>
                     </div>
                 </div>
                 <div class="col chapters">
                     <h4>Описание</h4>
+                    <hr>
                     <h5>Основная цель этого курса - дать обзор основным терминам</h5>
-                    <di>
+                    <hr>
+                    <div>
                         <ul>
                             <li>Общая терминология ч.1</li>
                             <li>Общая терминология ч.2</li>
@@ -55,12 +51,11 @@
                             <li>Рынки</li>
                             <li>Техническая терминология</li>
                         </ul>
-                    </di>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 
 
-{% endblock %}
+{% endblock content %}
